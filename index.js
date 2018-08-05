@@ -3,6 +3,7 @@ const path = require('path')
 const app = express()
 const port = process.env.PORT || 3000
 const routed = require('./routes/routers')
+const model = require('./models/modelIndex')
 
 //app.get('/', (req, res)=> res.render('home'))
 
