@@ -5,8 +5,13 @@ const sequelize = new Sequelize('cad-crud', 'root', '', {
     operatorsAliases: false
 })
 
-sequelize.import('objPerson.js')
+const pessoa = sequelize.import('./objPerson.js')
 
-sequelize.sync().then(()=> console.log('we are synced'))
+module.exports = {
+    sequelize,
+    models: {
+        pessoa
+    }
+}
 
 //sequelize.authenticate().then(()=> console.log('auth on db'))
