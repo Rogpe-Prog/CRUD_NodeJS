@@ -4,10 +4,11 @@ const index = async({pessoa}, req, res) => {
 }
 
 const createForm = (req, res)=> {
-    res.render('pessoas/create')
+    res.render('people/create')
 }
 const createProcess = async({ pessoa }, req, res)=> {
-    res.send('create')
+    await pessoa.create(req.body)
+    res.redirect('/people')
 }
 
 module.exports = {

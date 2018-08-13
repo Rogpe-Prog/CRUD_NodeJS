@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.get('/', (req, res)=> res.render('home'))
-app.use('/pessoas', routed)
+app.use('/people', routed)
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
