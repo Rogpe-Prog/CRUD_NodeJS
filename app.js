@@ -4,11 +4,12 @@ const app = express()
 const port = process.env.PORT || 3000
 const routed = require('./routes/routers')
 const model = require('./models/modelIndex')
+const bodyParser = require('body-parser')
 
-app.get('/', (req, res)=> res.render('home'))
-app.get('/pessoas', routed)
-
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('public'))
+app.get('/', (req, res)=> res.render('home'))
+app.use('/pessoas', routed)
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')

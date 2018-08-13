@@ -3,6 +3,15 @@ const index = async({pessoa}, req, res) => {
     res.send(pessoas)
 }
 
+const createForm = (req, res)=> {
+    res.render('pessoas/create')
+}
+const createProcess = async({ pessoa }, req, res)=> {
+    res.send('create')
+}
+
 module.exports = {
-    index
+    index,
+    createForm,
+    createProcess
 }
