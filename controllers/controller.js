@@ -1,8 +1,7 @@
 const index = async({pessoa}, req, res) => {
     const pessoas = await pessoa.findAll()
-    res.send(pessoas)
+    res.render('people/read', {pessoas})
 }
-
 const createForm = (req, res)=> {
     res.render('people/create')
 }
