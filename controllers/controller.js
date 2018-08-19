@@ -17,10 +17,24 @@ const deleteOne = async({pessoa}, req, res)=> {
     })
     res.redirect('/people')
 }
+const editForm = async({pessoa},req, res)=> {
+    const pessoas = await pessoa.findById(req.params.id)
+    res.render('people/edit', { pessoas })
+}
+const editProcess = async({ pessoa }, req, res)=> {
+    await pessoa.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    res.redirect('/people')
+}
 
 module.exports = {
     index,
     createForm,
     createProcess,
-    deleteOne
+    deleteOne,
+    editForm,
+    editProcess
 }
